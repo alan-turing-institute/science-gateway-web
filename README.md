@@ -11,7 +11,7 @@ az account list
 az account set --subscription <id>
 
 az group create \
-  --name Science-Gateway --location "West Europe"
+  --name Science-Gateway-Web --location "West Europe"
 
 az group deployment validate \
   --resource-group "Science-Gateway-Web" \
