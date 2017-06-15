@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "siteName": {
-      "value": "GEN-UNIQUE"
+      "value": "science-gateway-web"
     },
     "hostingPlanName": {
-      "value": "GEN-UNIQUE"
+      "value": "Science-Gateway"
     }
   }
 }
