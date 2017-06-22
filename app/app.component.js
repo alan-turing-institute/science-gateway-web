@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Engin';
+        this.title = 'Engineers';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'rse-demo',
-            template: "\n          <h1>{{title}}</h1>\n              <label>Engineer: </label>\n              <input [(ngModel)]=\"searchEngineer\" placeholder=\"Put Name Here\"/>\n              <rse-display [searchTerm] = \"searchEngineer\"></rse-display>\n          <div>\n      </div>  \n          "
+            template: "\n          <h1>{{title}}</h1>\n              <label>Engineering: </label>\n              <input [(ngModel)]=\"searchEngineer\" placeholder=\"Put Names Here\"/>\n              <rse-display [searchTerm] = \"searchEngineer\"></rse-display>\n          <div>\n      </div>  \n          "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

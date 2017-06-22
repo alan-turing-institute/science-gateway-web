@@ -10,20 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var engineer_service_1 = require('./engineer.service');
+var mycomponent_service_1 = require('./mycomponent.service');
 var DisplayComponent = (function () {
-    function DisplayComponent(engineerService) {
+    function DisplayComponent(engineerService, componentService) {
         this.engineerService = engineerService;
+        this.componentService = componentService;
     }
     DisplayComponent.prototype.getEngineers = function () {
         this.selectedEngineers = this.engineerService.getEngineers();
-        console.log(this.selectedEngineers);
     };
     DisplayComponent.prototype.filterEngineers = function (searchTerm) {
         this.selectedEngineers = this.engineerService.filterEngineers(searchTerm);
-        //console.log(this.selectedEngineers);
+        console.log(this.selectedEngineers);
     };
     DisplayComponent.prototype.ngOnInit = function () {
         this.selectedEngineers = this.engineerService.filterEngineers("");
+        this.selectedComponents = this.componentService.getMyComponents();
+        console.log("test:" + this.selectedComponents);
     };
     DisplayComponent.prototype.ngOnChanges = function (changes) {
         this.selectedEngineers = this.engineerService.filterEngineers(changes["searchTerm"].currentValue);
@@ -35,10 +38,11 @@ var DisplayComponent = (function () {
     DisplayComponent = __decorate([
         core_1.Component({
             selector: 'rse-display',
-            providers: [engineer_service_1.EngineerService],
-            template: "\n          <ul class=\"engineers\">\n            <li *ngFor=\"let engineer of selectedEngineers\">\n                <label> {{engineer.name}} </label>\n            </li>\n          </ul>\n      "
+            providers: [engineer_service_1.EngineerService, mycomponent_service_1.MyComponentService],
+            //   template: `<ng-include={{getTemplate()}}></ng-include>`
+            template: "<ul class=\"engineers\">\n            <li *ngFor=\"let engineer of selectedEngineers\">\n                <label> {{engineer.name}} </label>\n            </li>\n\n            <div *ngFor=\"let component of selectedComponents\">\n                <div *ngIf=\"component.type == 'text'\">\n                    <label>{{component.label}}:<input type=\"text\" name=\"name\" /></label>\n                </div>\n                <div *ngIf=\"component.type == 'select'\">\n                    <select>\n                        <option *ngFor=\"let o of component.options\" [ngValue]=\"o\">{{o}}</option>\n                    </select>\n                </div>\n             </div>\n          </ul>\n          "
         }), 
-        __metadata('design:paramtypes', [engineer_service_1.EngineerService])
+        __metadata('design:paramtypes', [engineer_service_1.EngineerService, mycomponent_service_1.MyComponentService])
     ], DisplayComponent);
     return DisplayComponent;
 }());

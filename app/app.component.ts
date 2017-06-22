@@ -7,8 +7,8 @@ import { SearchComponent } from './search.component';
   selector: 'rse-demo',
   template: `
           <h1>{{title}}</h1>
-              <label>Engineer: </label>
-              <input [(ngModel)]="searchEngineer" placeholder="Put Name Here"/>
+              <label>Engineering: </label>
+              <input [(ngModel)]="searchEngineer" placeholder="Put Names Here"/>
               <rse-display [searchTerm] = "searchEngineer"></rse-display>
           <div>
       </div>  
